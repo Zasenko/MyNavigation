@@ -13,7 +13,7 @@ struct NaviGayApp: App {
 
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            TestView()
                 .environment(\.managedObjectContext, persistenceController.container.viewContext)
         }
     }
