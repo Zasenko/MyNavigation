@@ -7,22 +7,6 @@
 
 import SwiftUI
 
-struct AppImages {
-    static let logoFull = Image("logoFull")
-}
-
-struct AppColors {
-    static let red = Color("red")
-    static let background = Color("background")
-}
-
-struct AppFonts {
-    static let largeTitle = Font.custom("SFProDisplay-Black", size: 40, relativeTo: .largeTitle)
-    static let largeTitleLight = Font.custom("SFProDisplay-Ultralight", size: 40, relativeTo: .largeTitle)
-    static let normalText = Font.custom("SFProDisplay-Light", size: 20, relativeTo: .body)
-    static let captionText = Font.custom("SFProDisplay-Ultralight", size: 18, relativeTo: .caption)
-}
-
 struct TestView: View {
     
     var body: some View {
