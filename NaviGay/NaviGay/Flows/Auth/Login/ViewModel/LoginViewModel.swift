@@ -10,13 +10,17 @@ import SwiftUI
 final class LoginViewModel: ObservableObject {
     
     // MARK: - Properties
-    @Published var email: String = ""
-    @Published var password: String = ""
-    @Published var loginButtonState: AsyncButtonState = .normal
+    
+    @Published var email = ""
+    @Published var password = ""
     @Published var error = ""
+    
+    @Published var loginButtonState: AsyncButtonState = .normal
+
     @Published var invalidLoginAttempts = 0
     @Published var invalidPasswordAttempts = 0
-    @Published var isSkipButtonAvailable = true
+
+    @Published var isButtonsDisabled = false
     @Published var isSignUpViewOpen = false
 }
 
@@ -24,38 +28,43 @@ extension LoginViewModel {
     // MARK: - Functions
     
     func loginButtonTapped() {
-        isSkipButtonAvailable = false
-        
         error = ""
-        let loginErrors = checkLogin()
-        if loginErrors == false {
+        if !checkLogin() {
             error = "Incorrect email"
             shakeLogin()
             return
         }
         
         let passwordErrors = checkPassword(str: password)
-        if passwordErrors.isEmpty {
-            
-        } else {
+        if !passwordErrors.isEmpty {
             for passwordError in passwordErrors {
                 error += passwordError
             }
             shakePassword()
             return
         }
-        withAnimation(.easeInOut(duration: 0.4)) {
+        
+        isButtonsDisabled = true
+        
+        withAnimation(.easeInOut(duration: 0.5)) {
             loginButtonState = .loading
         }
         DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
-            withAnimation(.easeInOut(duration: 0.4)) {
+            withAnimation(.easeInOut(duration: 0.5)) {
                 self.loginButtonState = .success
+            //    self.isButtonsDisabled = false
             }
         }
         DispatchQueue.main.asyncAfter(deadline: .now() + 4) {
-            withAnimation(.easeInOut(duration: 0.4)) {
+            withAnimation(.easeInOut(duration: 0.5)) {
+                self.loginButtonState = .failure
+          //      self.isButtonsDisabled = false
+            }
+        }
+        DispatchQueue.main.asyncAfter(deadline: .now() + 6) {
+            withAnimation(.easeInOut(duration: 0.5)) {
                 self.loginButtonState = .normal
-                self.isSkipButtonAvailable = true
+                self.isButtonsDisabled = false
             }
         }
         Task {
@@ -71,6 +80,7 @@ extension LoginViewModel {
     func signUpViewDismissed() {
         isSignUpViewOpen = false
     }
+    // MARK: - Private Functions
     
     private func checkLogin() -> Bool {
         invalidLoginAttempts = 0

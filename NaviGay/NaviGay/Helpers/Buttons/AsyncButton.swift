@@ -7,6 +7,10 @@
 
 import SwiftUI
 
+enum AsyncButtonState {
+    case normal, loading, success, failure
+}
+
 struct AsyncButton<Content>: View where Content: View {
     
     // MARK: - Properties
@@ -26,27 +30,43 @@ struct AsyncButton<Content>: View where Content: View {
                 switch state {
                 case .normal:
                     content()
-                        .font(.headline)
-                        .foregroundColor(.white)
-                        .padding(.horizontal)
-                        .padding(.horizontal)
-                        .transition(.scale.combined(with: .opacity))
-                        .frame(height: 50)
-                        .background(backgroundColor)
-                        .clipShape(Capsule())
+
                 case .loading:
                     ProgressView()
+                        .padding(.horizontal)
+                        .foregroundColor(.white)
                 case .success:
                     Image(systemName: "checkmark")
-                        .foregroundColor(Color.green)
                         .bold()
+                        .padding(.horizontal)
+                        .foregroundColor(.green)
                 case .failure:
                     Image(systemName: "xmark")
-                        .foregroundColor(AppColors.red)
                         .bold()
+                        .padding(.horizontal)
+                        .foregroundColor(AppColors.red)
                 }
             }
+            .font(.headline)
+            .foregroundColor(.white)
+            .padding(.horizontal)
+            .padding(.horizontal)
             .frame(height: 50)
+//            .background (backgroundColor)
+//            .background {
+//                switch state {
+//                case .normal, .loading:
+//                    backgroundColor
+//                case .success:
+//                    Color.gray
+//                case .failure:
+//                    AppColors.red
+//                }
+//            }
+            .background {
+                state == .normal ? backgroundColor : Color.clear
+            }
+            .clipShape(Capsule(style: .continuous))
             .disabled(state == .loading || state == .success || state == .failure)
         }
     }
