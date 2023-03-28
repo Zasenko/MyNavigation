@@ -15,44 +15,51 @@ final class SignUpViewModel: ObservableObject {
     @Published var name: String = ""
     @Published var bio: String = ""
     @Published var image: UIImage?
-    
     @Published var error = ""
-    
-    @Published var showImagePicker: Bool = false
-    @Published var isButtonsDisabled = false
     
     @Published var signUpButtonState: AsyncButtonState = .normal
     
     @Published var invalidLoginAttempts = 0
     @Published var invalidPasswordAttempts = 0
+    @Published var invalidNameAttempts = 0
     
-    let bioPlaceholder = "About you"
+    @Published var allViewsDisabled: Bool = false
+    @Published var showImagePicker: Bool = false
+    
+    private let authManager: AuthManagerProtocol
+    
+    init(authManager: AuthManagerProtocol) {
+        self.authManager = authManager
+    }
 }
 
 extension SignUpViewModel {
     // MARK: - Functions
     func SignUpButtonTapped() {
         error = ""
-        if !checkLogin() {
-            error = "Incorrect email"
-            shakeLogin()
-            return
-        }
+        invalidLoginAttempts = 0
+        invalidPasswordAttempts = 0
+        invalidNameAttempts = 0
         
-        let passwordErrors = checkPassword(str: password)
-        if !passwordErrors.isEmpty {
-            for passwordError in passwordErrors {
-                error += passwordError
+        authManager.check(email: email, password: password) { [weak self] result in
+            switch result {
+            case .success(_):
+                self?.allViewsDisabled = true
+                withAnimation(.easeInOut(duration: 0.5)) {
+                    self?.signUpButtonState = .loading
+                }
+            case .failure(let error):
+                switch error {
+                case .wrongEmail:
+                    self?.error = "Incorrect email"
+                    self?.shakeLogin()
+                default:
+                    self?.error = "Wrong password"
+                    self?.shakePassword()
+                }
             }
-            shakePassword()
-            return
         }
         
-        isButtonsDisabled = true
-        
-        withAnimation(.easeInOut(duration: 0.5)) {
-            signUpButtonState = .loading
-        }
         DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
             withAnimation(.easeInOut(duration: 0.5)) {
                 self.signUpButtonState = .success
@@ -68,7 +75,7 @@ extension SignUpViewModel {
         DispatchQueue.main.asyncAfter(deadline: .now() + 6) {
             withAnimation(.easeInOut(duration: 0.5)) {
                 self.signUpButtonState = .normal
-                self.isButtonsDisabled = false
+                self.allViewsDisabled = false
             }
         }
         Task {
@@ -77,38 +84,6 @@ extension SignUpViewModel {
     }
     
     // MARK: - Private Functions
-    private func checkLogin() -> Bool {
-        invalidLoginAttempts = 0
-        let emailRegEx = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,64}"
-        let emailPred = NSPredicate(format:"SELF MATCHES %@", emailRegEx)
-        return emailPred.evaluate(with: email)
- 
-    }
-    
-    private func checkPassword(str: String) -> [String] {
-        invalidPasswordAttempts = 0
-        var errors: [String] = []
-        if(!NSPredicate(format:"SELF MATCHES %@", ".*[A-Z]+.*").evaluate(with: str)){
-            errors.append("least one uppercase\n")
-        }
-        
-        if(!NSPredicate(format:"SELF MATCHES %@", ".*[0-9]+.*").evaluate(with: str)){
-            errors.append("least one digit\n")
-        }
-
-//        if(!NSPredicate(format:"SELF MATCHES %@", ".*[!&^%$#@()/]+.*").evaluate(with: str)){
-//            errors.append("least one symbol\n")
-//        }
-        
-        if(!NSPredicate(format:"SELF MATCHES %@", ".*[a-z]+.*").evaluate(with: str)){
-            errors.append("least one lowercase\n")
-        }
-        
-        if(str.count < 8){
-            errors.append("min 8 characters total\n")
-        }
-        return errors
-    }
     
     private func shakeLogin() {
         withAnimation(.default) {

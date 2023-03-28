@@ -9,12 +9,12 @@ import SwiftUI
 
 @main
 struct NaviGayApp: App {
-    let persistenceController = PersistenceController.shared
+   // let persistenceController = PersistenceController.sharedbounds
 
     var body: some Scene {
         WindowGroup {
             LoginView()
-                .environment(\.managedObjectContext, persistenceController.container.viewContext)
+            //    .environment(\.managedObjectContext, persistenceController.container.viewContext)
         }
     }
 }

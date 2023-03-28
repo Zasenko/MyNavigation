@@ -20,8 +20,10 @@ final class LoginViewModel: ObservableObject {
     @Published var invalidLoginAttempts = 0
     @Published var invalidPasswordAttempts = 0
 
-    @Published var isButtonsDisabled = false
+    @Published var allViewsDisabled = false
     @Published var isSignUpViewOpen = false
+    
+    private let authManager: AuthManagerProtocol = AuthManager()
 }
 
 extension LoginViewModel {
@@ -29,26 +31,52 @@ extension LoginViewModel {
     
     func loginButtonTapped() {
         error = ""
-        if !checkLogin() {
-            error = "Incorrect email"
-            shakeLogin()
-            return
-        }
+        invalidLoginAttempts = 0
+        invalidPasswordAttempts = 0
         
-        let passwordErrors = checkPassword(str: password)
-        if !passwordErrors.isEmpty {
-            for passwordError in passwordErrors {
-                error += passwordError
+//        authManager.checkEmail(email: email) { [weak self] bool in
+//            if !bool {
+//                self?.error = "Incorrect email"
+//                self?.shakeLogin()
+//                return
+//            }
+//        }
+        allViewsDisabled = true
+        authManager.check(email: email, password: password) { [weak self] result in
+            switch result {
+            case .success(_):
+               // self?.allViewsDisabled = true
+                withAnimation(.easeInOut(duration: 0.5)) {
+                    self?.loginButtonState = .loading
+                }
+            case .failure(let error):
+                switch error {
+                case .wrongEmail:
+                    self?.error = "Incorrect email"
+                    self?.shakeLogin()
+                    return
+                default:
+                    self?.error = "Wrong password"
+                    self?.shakePassword()
+                    return
+                }
+                
+                //                self?.error = "Wrong password"
+                //                self?.shakePassword()
+                //                return
+                
             }
-            shakePassword()
-            return
         }
+//        if !authManager.checkPassword(str: password) {
+//            error = "Wrong password"
+//            shakePassword()
+//            return
+//        }
+//        allViewsDisabled = true
+//        withAnimation(.easeInOut(duration: 0.5)) {
+//            loginButtonState = .loading
+//        }
         
-        isButtonsDisabled = true
-        
-        withAnimation(.easeInOut(duration: 0.5)) {
-            loginButtonState = .loading
-        }
         DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
             withAnimation(.easeInOut(duration: 0.5)) {
                 self.loginButtonState = .success
@@ -64,7 +92,7 @@ extension LoginViewModel {
         DispatchQueue.main.asyncAfter(deadline: .now() + 6) {
             withAnimation(.easeInOut(duration: 0.5)) {
                 self.loginButtonState = .normal
-                self.isButtonsDisabled = false
+                self.allViewsDisabled = false
             }
         }
         Task {
@@ -72,7 +100,9 @@ extension LoginViewModel {
         }
     }
     
-    func skipButtonTapped() {}
+    func skipButtonTapped() {
+        isSignUpViewOpen = true
+    }
     func signUpButtonTapped() {
         isSignUpViewOpen = true
     }
@@ -80,41 +110,14 @@ extension LoginViewModel {
     func signUpViewDismissed() {
         isSignUpViewOpen = false
     }
+    
+    func makeSignUpView() -> some View {
+        let viewModel = SignUpViewModel(authManager: authManager)
+        return SignUpView(viewModel: viewModel)
+    }
+    
     // MARK: - Private Functions
-    
-    private func checkLogin() -> Bool {
-        invalidLoginAttempts = 0
-        let emailRegEx = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,64}"
-        let emailPred = NSPredicate(format:"SELF MATCHES %@", emailRegEx)
-        return emailPred.evaluate(with: email)
- 
-    }
-    
-    private func checkPassword(str: String) -> [String] {
-        invalidPasswordAttempts = 0
-        var errors: [String] = []
-        if(!NSPredicate(format:"SELF MATCHES %@", ".*[A-Z]+.*").evaluate(with: str)){
-            errors.append("least one uppercase\n")
-        }
-        
-        if(!NSPredicate(format:"SELF MATCHES %@", ".*[0-9]+.*").evaluate(with: str)){
-            errors.append("least one digit\n")
-        }
 
-//        if(!NSPredicate(format:"SELF MATCHES %@", ".*[!&^%$#@()/]+.*").evaluate(with: str)){
-//            errors.append("least one symbol\n")
-//        }
-        
-        if(!NSPredicate(format:"SELF MATCHES %@", ".*[a-z]+.*").evaluate(with: str)){
-            errors.append("least one lowercase\n")
-        }
-        
-        if(str.count < 8){
-            errors.append("min 8 characters total\n")
-        }
-        return errors
-    }
-    
     private func shakeLogin() {
         withAnimation(.default) {
             invalidLoginAttempts += 1

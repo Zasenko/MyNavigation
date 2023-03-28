@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0F07EA8529D324F600E8A28D /* AuthManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F07EA8429D324F600E8A28D /* AuthManager.swift */; };
 		0F101E4E29C9ED30004BBF8C /* NaviGayApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F101E4D29C9ED30004BBF8C /* NaviGayApp.swift */; };
 		0F101E5029C9ED30004BBF8C /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F101E4F29C9ED30004BBF8C /* ContentView.swift */; };
 		0F101E5229C9ED31004BBF8C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0F101E5129C9ED31004BBF8C /* Assets.xcassets */; };
@@ -51,6 +52,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0F07EA8429D324F600E8A28D /* AuthManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthManager.swift; sourceTree = "<group>"; };
 		0F101E4A29C9ED30004BBF8C /* NaviGay.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NaviGay.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0F101E4D29C9ED30004BBF8C /* NaviGayApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NaviGayApp.swift; sourceTree = "<group>"; };
 		0F101E4F29C9ED30004BBF8C /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -106,6 +108,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0F07EA8329D324E500E8A28D /* Managers */ = {
+			isa = PBXGroup;
+			children = (
+				0F07EA8429D324F600E8A28D /* AuthManager.swift */,
+			);
+			path = Managers;
+			sourceTree = "<group>";
+		};
 		0F101E4129C9ED30004BBF8C = {
 			isa = PBXGroup;
 			children = (
@@ -136,6 +146,7 @@
 				0F53DAA229CA0C89006B8461 /* Info.plist */,
 				0F101E4D29C9ED30004BBF8C /* NaviGayApp.swift */,
 				0F101E4F29C9ED30004BBF8C /* ContentView.swift */,
+				0F07EA8329D324E500E8A28D /* Managers */,
 				0F1A7D0B29CB587B00D701C3 /* ImagePicker */,
 				0F1A7CFB29CB4D2000D701C3 /* Flows */,
 				0F1A7D0C29CB58B000D701C3 /* CoreData */,
@@ -435,6 +446,7 @@
 				0F1A7D1829CC4C9200D701C3 /* LoginViewModel.swift in Sources */,
 				0F101E5029C9ED30004BBF8C /* ContentView.swift in Sources */,
 				0F1A7D2F29CC9F5600D701C3 /* ShakeEffect.swift in Sources */,
+				0F07EA8529D324F600E8A28D /* AuthManager.swift in Sources */,
 				0F1A7D0429CB571900D701C3 /* AppFonts.swift in Sources */,
 				0F1A7D0A29CB584A00D701C3 /* ImagePicker.swift in Sources */,
 				0F101E4E29C9ED30004BBF8C /* NaviGayApp.swift in Sources */,
@@ -607,6 +619,7 @@
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen.storyboard;
+				INFOPLIST_KEY_UIRequiresFullScreen = NO;
 				INFOPLIST_KEY_UIStatusBarStyle = "";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -638,6 +651,7 @@
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen.storyboard;
+				INFOPLIST_KEY_UIRequiresFullScreen = NO;
 				INFOPLIST_KEY_UIStatusBarStyle = "";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				LD_RUNPATH_SEARCH_PATHS = (

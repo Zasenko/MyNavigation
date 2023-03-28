@@ -30,41 +30,28 @@ struct AsyncButton<Content>: View where Content: View {
                 switch state {
                 case .normal:
                     content()
-
                 case .loading:
                     ProgressView()
-                        .padding(.horizontal)
-                        .foregroundColor(.white)
                 case .success:
                     Image(systemName: "checkmark")
                         .bold()
-                        .padding(.horizontal)
                         .foregroundColor(.green)
                 case .failure:
                     Image(systemName: "xmark")
                         .bold()
-                        .padding(.horizontal)
                         .foregroundColor(AppColors.red)
                 }
             }
-            .font(.headline)
-            .foregroundColor(.white)
             .padding(.horizontal)
             .padding(.horizontal)
             .frame(height: 50)
-//            .background (backgroundColor)
-//            .background {
-//                switch state {
-//                case .normal, .loading:
-//                    backgroundColor
-//                case .success:
-//                    Color.gray
-//                case .failure:
-//                    AppColors.red
-//                }
-//            }
             .background {
-                state == .normal ? backgroundColor : Color.clear
+                switch state {
+                case .normal:
+                    backgroundColor
+                default:
+                    Color.clear
+                }
             }
             .clipShape(Capsule(style: .continuous))
             .disabled(state == .loading || state == .success || state == .failure)
