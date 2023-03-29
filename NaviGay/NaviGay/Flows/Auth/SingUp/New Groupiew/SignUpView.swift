@@ -25,38 +25,70 @@ struct SignUpView: View {
     // MARK: - View
     
     var body: some View {
-        GeometryReader { geometry in
-            ScrollViewReader { proxy in
-                ScrollView(.vertical, showsIndicators: false) {
-                    dismissButton
-                    VStack {
+        //    GeometryReader { geometry in
+        //   ScrollViewReader { proxy in
+        ScrollViewReader { proxy in
+            ScrollView(.vertical, showsIndicators: false) {
+                
+                VStack {
+                    ZStack(alignment: .top) {
                         photoView
-                        emailField
-                        passwordField
-                        errorView
-                        nameField
-                        bioField
-                            .onTapGesture {
-                                proxy.scrollTo(topID)
-                            }
-                        signUpButtonView
-                            .id(topID)
+                        dismissButton
                     }
-                    .padding()
-                    .frame(maxWidth: 400)
-                    .ignoresSafeArea(.keyboard)
-                    
+                    emailField
+                        .onTapGesture {
+                            focusedField = .email
+                        }
+                    passwordField
+                        .onTapGesture {
+                            focusedField = .password
+                        }
+                    errorView
+                    Button {
+                        withAnimation {
+                            viewModel.showMoreFields.toggle()
+                        }
+                        
+                    } label: {
+                        HStack{
+                            Text("Tell about you more")
+                            Image(systemName: "chevron.right.circle")
+                        }
+                    }
+                    VStack {
+                        if  viewModel.showMoreFields {
+                            nameField
+                                .onTapGesture {
+                                    focusedField = .name
+                                    withAnimation {
+                                        proxy.scrollTo(1, anchor: .bottom)
+                                    }
+                                }
+                                .id(1)
+                            
+                            bioField
+                                .onTapGesture {
+                                    focusedField = .bio
+                                    withAnimation {
+                                        proxy.scrollTo(2, anchor: .bottom)
+                                    }
+                                }
+                                .id(2)
+                        }
+                    }
+                    .scaleEffect(viewModel.showMoreFields ? 1 : 0, anchor: .top)
+                    signUpButtonView
                 }
-                .frame(width: geometry.size.width)
-                .ignoresSafeArea(.keyboard)
-                .scrollDismissesKeyboard(.immediately)
-                .disabled(viewModel.allViewsDisabled)
-                .sheet(isPresented: $viewModel.showImagePicker) {
-                    ImagePicker(image: $viewModel.image)
-                }
-                .onTapGesture {
-                    focusedField = nil
-                }
+                .padding()
+                .frame(maxWidth: 400)
+            }
+            .scrollDismissesKeyboard(.immediately)
+            .disabled(viewModel.allViewsDisabled)
+            .sheet(isPresented: $viewModel.showImagePicker) {
+                ImagePicker(image: $viewModel.image)
+            }
+            .onTapGesture {
+                focusedField = nil
             }
         }
     }
@@ -107,7 +139,7 @@ struct SignUpView: View {
                 Button("from camera") {
                     //
                 }
-
+                
             } label: {
                 Text("add photo")
             }
@@ -166,7 +198,7 @@ struct SignUpView: View {
         Text(viewModel.error)
             .font(.callout.bold())
             .foregroundColor(AppColors.red)
-            .frame(height: 50)
+            .frame(height: 40)
     }
     
     private var nameField: some View {
@@ -211,14 +243,16 @@ struct SignUpView: View {
                         .foregroundColor(Color(uiColor: .gray).opacity(0.5))
                         .padding(.vertical, 8)
                         .padding(.horizontal, 6)
+                        .onTapGesture {
+                            focusedField = .bio
+                        }
                 }
             }
         }
         .padding()
         .background(AppColors.lightGray)
         .cornerRadius(8)
-        .padding(.bottom)
-        .padding(.bottom)
+        .padding(.bottom, 8)
     }
     
     private var signUpButtonView: some View {
@@ -238,6 +272,8 @@ struct SignUpView: View {
                     .padding()
             }
         }
+        .padding(.vertical)
+        .padding(.vertical)
     }
 }
 

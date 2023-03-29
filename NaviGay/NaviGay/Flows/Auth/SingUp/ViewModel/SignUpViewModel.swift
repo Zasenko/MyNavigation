@@ -25,6 +25,7 @@ final class SignUpViewModel: ObservableObject {
     
     @Published var allViewsDisabled: Bool = false
     @Published var showImagePicker: Bool = false
+    @Published var showMoreFields: Bool = false
     
     private let authManager: AuthManagerProtocol
     
@@ -80,6 +81,12 @@ extension SignUpViewModel {
         }
         Task {
             //await self.performAction()
+        }
+    }
+    
+    func moreButtonTapped() {
+        withAnimation(.default) {
+            showMoreFields = true
         }
     }
     
