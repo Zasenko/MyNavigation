@@ -12,19 +12,14 @@ final class SignUpViewModel: ObservableObject {
     // MARK: - Properties
     @Published var email: String = ""
     @Published var password: String = ""
-    @Published var name: String = ""
-    @Published var bio: String = ""
-    @Published var image: UIImage?
     @Published var error = ""
     
     @Published var signUpButtonState: AsyncButtonState = .normal
     
     @Published var invalidLoginAttempts = 0
     @Published var invalidPasswordAttempts = 0
-    @Published var invalidNameAttempts = 0
     
     @Published var allViewsDisabled: Bool = false
-    @Published var showImagePicker: Bool = false
     @Published var showMoreFields: Bool = false
     
     private let authManager: AuthManagerProtocol
@@ -40,7 +35,6 @@ extension SignUpViewModel {
         error = ""
         invalidLoginAttempts = 0
         invalidPasswordAttempts = 0
-        invalidNameAttempts = 0
         
         authManager.check(email: email, password: password) { [weak self] result in
             switch result {

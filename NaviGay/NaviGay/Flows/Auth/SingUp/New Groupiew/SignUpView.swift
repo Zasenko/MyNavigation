@@ -14,27 +14,22 @@ struct SignUpView: View {
     }
     
     // MARK: - Properties
-    @Namespace var topID
     @StateObject var viewModel: SignUpViewModel
     @Environment(\.dismiss) var dismiss
     
     // MARK: - Private properties
-    
     @FocusState private var focusedField: Field?
     
     // MARK: - View
-    
     var body: some View {
         //    GeometryReader { geometry in
         //   ScrollViewReader { proxy in
-        ScrollViewReader { proxy in
-            ScrollView(.vertical, showsIndicators: false) {
+            VStack {
                 
                 VStack {
-                    ZStack(alignment: .top) {
-                        photoView
-                        dismissButton
-                    }
+                    Spacer()
+                    Text("Login")
+                        .font(.system(size: 40)).bold()
                     emailField
                         .onTapGesture {
                             focusedField = .email
@@ -44,53 +39,18 @@ struct SignUpView: View {
                             focusedField = .password
                         }
                     errorView
-                    Button {
-                        withAnimation {
-                            viewModel.showMoreFields.toggle()
-                        }
-                        
-                    } label: {
-                        HStack{
-                            Text("Tell about you more")
-                            Image(systemName: "chevron.right.circle")
-                        }
-                    }
-                    VStack {
-                        if  viewModel.showMoreFields {
-                            nameField
-                                .onTapGesture {
-                                    focusedField = .name
-                                    withAnimation {
-                                        proxy.scrollTo(1, anchor: .bottom)
-                                    }
-                                }
-                                .id(1)
-                            
-                            bioField
-                                .onTapGesture {
-                                    focusedField = .bio
-                                    withAnimation {
-                                        proxy.scrollTo(2, anchor: .bottom)
-                                    }
-                                }
-                                .id(2)
-                        }
-                    }
-                    .scaleEffect(viewModel.showMoreFields ? 1 : 0, anchor: .top)
                     signUpButtonView
+                    Spacer()
                 }
                 .padding()
                 .frame(maxWidth: 400)
             }
             .scrollDismissesKeyboard(.immediately)
             .disabled(viewModel.allViewsDisabled)
-            .sheet(isPresented: $viewModel.showImagePicker) {
-                ImagePicker(image: $viewModel.image)
-            }
             .onTapGesture {
                 focusedField = nil
             }
-        }
+        
     }
     
     // MARK: - Private properties / Views
@@ -105,47 +65,6 @@ struct SignUpView: View {
                     .padding(.horizontal)
             }
         }
-    }
-    
-    private var photoView: some View {
-        VStack {
-            if let image = viewModel.image {
-                Image(uiImage: image)
-                    .resizable()
-                    .scaledToFit()
-                    .frame(width: 150)
-                    .clipShape(Circle())
-                    .padding()
-                    .onTapGesture {
-                        viewModel.showImagePicker = true
-                    }
-            } else {
-                Image(systemName: "person.fill")
-                    .resizable()
-                    .scaledToFit()
-                    .padding(40)
-                    .frame(width: 150)
-                    .background(AppColors.lightGray)
-                    .foregroundColor(.white)
-                    .clipShape(Circle())
-                    .onTapGesture {
-                        viewModel.showImagePicker = true
-                    }
-            }
-            Menu {
-                Button("from album") {
-                    //
-                }
-                Button("from camera") {
-                    //
-                }
-                
-            } label: {
-                Text("add photo")
-            }
-            .font(.callout)
-            .padding(.bottom)
-        }.padding(.bottom)
     }
     
     private var emailField: some View {
@@ -198,61 +117,7 @@ struct SignUpView: View {
         Text(viewModel.error)
             .font(.callout.bold())
             .foregroundColor(AppColors.red)
-            .frame(height: 40)
-    }
-    
-    private var nameField: some View {
-        HStack {
-            Image(systemName: "person")
-                .foregroundColor(.secondary)
-                .frame(width: 20)
-            TextField("Name", text: $viewModel.name)
-                .focused($focusedField, equals: .name)
-                .onSubmit {
-                    focusedField = nil
-                }
-        }
-        .padding()
-        .background(AppColors.lightGray)
-        .cornerRadius(8)
-        .overlay {
-            RoundedRectangle(cornerRadius: 8)
-                .stroke(lineWidth: 1)
-                .foregroundColor(viewModel.invalidPasswordAttempts == 0 ? .clear : .red)
-        }
-        .modifier(ShakeEffect(animatableData: CGFloat(viewModel.invalidNameAttempts)))
-        .padding(.bottom, 8)
-    }
-    
-    private var bioField: some View {
-        HStack(alignment: .top) {
-            Image(systemName: "person.text.rectangle")
-                .foregroundColor(.secondary)
-                .frame(width: 16)
-                .padding(.vertical, 10)
-            ZStack(alignment: .topLeading) {
-                TextEditor(text: $viewModel.bio)
-                    .frame(height: 60)
-                    .scrollContentBackground(.hidden)
-                    .focused($focusedField, equals: .bio)
-                    .onSubmit {
-                        focusedField = nil
-                    }
-                if viewModel.bio.isEmpty {
-                    Text("About")
-                        .foregroundColor(Color(uiColor: .gray).opacity(0.5))
-                        .padding(.vertical, 8)
-                        .padding(.horizontal, 6)
-                        .onTapGesture {
-                            focusedField = .bio
-                        }
-                }
-            }
-        }
-        .padding()
-        .background(AppColors.lightGray)
-        .cornerRadius(8)
-        .padding(.bottom, 8)
+            .frame(height: 50)
     }
     
     private var signUpButtonView: some View {

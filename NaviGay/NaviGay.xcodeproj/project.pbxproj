@@ -29,6 +29,8 @@
 		0F1A7D1829CC4C9200D701C3 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F1A7D1729CC4C9200D701C3 /* LoginViewModel.swift */; };
 		0F1A7D2F29CC9F5600D701C3 /* ShakeEffect.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F1A7D2E29CC9F5600D701C3 /* ShakeEffect.swift */; };
 		0F50A61729D45A7100450A0A /* Test2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F50A61629D45A7100450A0A /* Test2.swift */; };
+		0F50A61D29D491E700450A0A /* AboutUserView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F50A61C29D491E700450A0A /* AboutUserView.swift */; };
+		0F50A61F29D491FD00450A0A /* AboutUserViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F50A61E29D491FC00450A0A /* AboutUserViewModel.swift */; };
 		0F53DA9E29C9F901006B8461 /* TestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F53DA9D29C9F901006B8461 /* TestView.swift */; };
 		0F53DAA129CA0C40006B8461 /* SF-Pro-Display-Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = 0F53DAA029CA0C40006B8461 /* SF-Pro-Display-Light.otf */; };
 		0F53DAA929CA1D2E006B8461 /* SF-Pro-Display-Black.otf in Resources */ = {isa = PBXBuildFile; fileRef = 0F53DAA829CA1D2E006B8461 /* SF-Pro-Display-Black.otf */; };
@@ -78,6 +80,8 @@
 		0F1A7D1729CC4C9200D701C3 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 		0F1A7D2E29CC9F5600D701C3 /* ShakeEffect.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShakeEffect.swift; sourceTree = "<group>"; };
 		0F50A61629D45A7100450A0A /* Test2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Test2.swift; sourceTree = "<group>"; };
+		0F50A61C29D491E700450A0A /* AboutUserView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutUserView.swift; sourceTree = "<group>"; };
+		0F50A61E29D491FC00450A0A /* AboutUserViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutUserViewModel.swift; sourceTree = "<group>"; };
 		0F53DA9D29C9F901006B8461 /* TestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestView.swift; sourceTree = "<group>"; };
 		0F53DAA029CA0C40006B8461 /* SF-Pro-Display-Light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Pro-Display-Light.otf"; sourceTree = "<group>"; };
 		0F53DAA229CA0C89006B8461 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
@@ -188,6 +192,7 @@
 			children = (
 				0F1A7CFC29CB4D2A00D701C3 /* Auth */,
 				0F1A7D0B29CB587B00D701C3 /* ImagePicker */,
+				0F50A61829D48B8600450A0A /* New Group */,
 			);
 			path = Flows;
 			sourceTree = "<group>";
@@ -197,6 +202,7 @@
 			children = (
 				0F1A7D1229CC4C3A00D701C3 /* Login */,
 				0F1A7CFD29CB4D3400D701C3 /* SingUp */,
+				0F50A61929D491A700450A0A /* About */,
 			);
 			path = Auth;
 			sourceTree = "<group>";
@@ -294,6 +300,38 @@
 				0F1A7D2E29CC9F5600D701C3 /* ShakeEffect.swift */,
 			);
 			path = GeometryEffects;
+			sourceTree = "<group>";
+		};
+		0F50A61829D48B8600450A0A /* New Group */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "New Group";
+			sourceTree = "<group>";
+		};
+		0F50A61929D491A700450A0A /* About */ = {
+			isa = PBXGroup;
+			children = (
+				0F50A61B29D491C600450A0A /* ViewModel */,
+				0F50A61A29D491C000450A0A /* View */,
+			);
+			path = About;
+			sourceTree = "<group>";
+		};
+		0F50A61A29D491C000450A0A /* View */ = {
+			isa = PBXGroup;
+			children = (
+				0F50A61C29D491E700450A0A /* AboutUserView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		0F50A61B29D491C600450A0A /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				0F50A61E29D491FC00450A0A /* AboutUserViewModel.swift */,
+			);
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 		0F53DA9F29CA0BCA006B8461 /* Fonts */ = {
@@ -447,6 +485,7 @@
 				0F1A7D0829CB575B00D701C3 /* AppImages.swift in Sources */,
 				0F1A7CFF29CB4D4800D701C3 /* SignUpView.swift in Sources */,
 				0F1A7D1829CC4C9200D701C3 /* LoginViewModel.swift in Sources */,
+				0F50A61D29D491E700450A0A /* AboutUserView.swift in Sources */,
 				0F101E5029C9ED30004BBF8C /* ContentView.swift in Sources */,
 				0F1A7D2F29CC9F5600D701C3 /* ShakeEffect.swift in Sources */,
 				0F07EA8529D324F600E8A28D /* AuthManager.swift in Sources */,
@@ -457,6 +496,7 @@
 				0F1A7D1629CC4C6900D701C3 /* LoginView.swift in Sources */,
 				0F1A7D0129CB4D7300D701C3 /* SignUpViewModel.swift in Sources */,
 				0F101E5A29C9ED31004BBF8C /* NaviGay.xcdatamodeld in Sources */,
+				0F50A61F29D491FD00450A0A /* AboutUserViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -619,7 +659,6 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = NaviGay/Info.plist;
-				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen.storyboard;
@@ -651,7 +690,6 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = NaviGay/Info.plist;
-				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen.storyboard;
