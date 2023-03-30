@@ -8,5 +8,12 @@
 		<string>SF-Pro-Display-Light.otf</string>
 		<string>SF-Pro-Display-Ultralight.otf</string>
 	</array>
+	<key>UIApplicationSceneManifest</key>
+	<dict>
+		<key>UIApplicationSupportsMultipleScenes</key>
+		<true/>
+		<key>UISceneConfigurations</key>
+		<dict/>
+	</dict>
 </dict>
 </plist>

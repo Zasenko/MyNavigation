@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0F07EA8529D324F600E8A28D /* AuthManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F07EA8429D324F600E8A28D /* AuthManager.swift */; };
 		0F101E4E29C9ED30004BBF8C /* NaviGayApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F101E4D29C9ED30004BBF8C /* NaviGayApp.swift */; };
 		0F101E5029C9ED30004BBF8C /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F101E4F29C9ED30004BBF8C /* ContentView.swift */; };
 		0F101E5229C9ED31004BBF8C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0F101E5129C9ED31004BBF8C /* Assets.xcassets */; };
@@ -17,6 +18,19 @@
 		0F101E6E29C9ED31004BBF8C /* NaviGayUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F101E6D29C9ED31004BBF8C /* NaviGayUITests.swift */; };
 		0F101E7029C9ED31004BBF8C /* NaviGayUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F101E6F29C9ED31004BBF8C /* NaviGayUITestsLaunchTests.swift */; };
 		0F101E7D29C9EDA2004BBF8C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0F101E7C29C9EDA2004BBF8C /* LaunchScreen.storyboard */; };
+		0F1A7CFF29CB4D4800D701C3 /* SignUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F1A7CFE29CB4D4800D701C3 /* SignUpView.swift */; };
+		0F1A7D0129CB4D7300D701C3 /* SignUpViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F1A7D0029CB4D7300D701C3 /* SignUpViewModel.swift */; };
+		0F1A7D0429CB571900D701C3 /* AppFonts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F1A7D0329CB571900D701C3 /* AppFonts.swift */; };
+		0F1A7D0629CB573E00D701C3 /* AppColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F1A7D0529CB573E00D701C3 /* AppColors.swift */; };
+		0F1A7D0829CB575B00D701C3 /* AppImages.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F1A7D0729CB575B00D701C3 /* AppImages.swift */; };
+		0F1A7D0A29CB584A00D701C3 /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F1A7D0929CB584A00D701C3 /* ImagePicker.swift */; };
+		0F1A7D0F29CB6D9100D701C3 /* AsyncButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F1A7D0E29CB6D9100D701C3 /* AsyncButton.swift */; };
+		0F1A7D1629CC4C6900D701C3 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F1A7D1529CC4C6900D701C3 /* LoginView.swift */; };
+		0F1A7D1829CC4C9200D701C3 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F1A7D1729CC4C9200D701C3 /* LoginViewModel.swift */; };
+		0F1A7D2F29CC9F5600D701C3 /* ShakeEffect.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F1A7D2E29CC9F5600D701C3 /* ShakeEffect.swift */; };
+		0F50A61729D45A7100450A0A /* Test2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F50A61629D45A7100450A0A /* Test2.swift */; };
+		0F50A61D29D491E700450A0A /* AboutUserView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F50A61C29D491E700450A0A /* AboutUserView.swift */; };
+		0F50A61F29D491FD00450A0A /* AboutUserViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F50A61E29D491FC00450A0A /* AboutUserViewModel.swift */; };
 		0F53DA9E29C9F901006B8461 /* TestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F53DA9D29C9F901006B8461 /* TestView.swift */; };
 		0F53DAA129CA0C40006B8461 /* SF-Pro-Display-Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = 0F53DAA029CA0C40006B8461 /* SF-Pro-Display-Light.otf */; };
 		0F53DAA929CA1D2E006B8461 /* SF-Pro-Display-Black.otf in Resources */ = {isa = PBXBuildFile; fileRef = 0F53DAA829CA1D2E006B8461 /* SF-Pro-Display-Black.otf */; };
@@ -41,6 +55,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0F07EA8429D324F600E8A28D /* AuthManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthManager.swift; sourceTree = "<group>"; };
 		0F101E4A29C9ED30004BBF8C /* NaviGay.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NaviGay.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0F101E4D29C9ED30004BBF8C /* NaviGayApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NaviGayApp.swift; sourceTree = "<group>"; };
 		0F101E4F29C9ED30004BBF8C /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -54,6 +69,19 @@
 		0F101E6D29C9ED31004BBF8C /* NaviGayUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NaviGayUITests.swift; sourceTree = "<group>"; };
 		0F101E6F29C9ED31004BBF8C /* NaviGayUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NaviGayUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		0F101E7C29C9EDA2004BBF8C /* LaunchScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
+		0F1A7CFE29CB4D4800D701C3 /* SignUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpView.swift; sourceTree = "<group>"; };
+		0F1A7D0029CB4D7300D701C3 /* SignUpViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewModel.swift; sourceTree = "<group>"; };
+		0F1A7D0329CB571900D701C3 /* AppFonts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppFonts.swift; sourceTree = "<group>"; };
+		0F1A7D0529CB573E00D701C3 /* AppColors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppColors.swift; sourceTree = "<group>"; };
+		0F1A7D0729CB575B00D701C3 /* AppImages.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppImages.swift; sourceTree = "<group>"; };
+		0F1A7D0929CB584A00D701C3 /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
+		0F1A7D0E29CB6D9100D701C3 /* AsyncButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AsyncButton.swift; sourceTree = "<group>"; };
+		0F1A7D1529CC4C6900D701C3 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
+		0F1A7D1729CC4C9200D701C3 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
+		0F1A7D2E29CC9F5600D701C3 /* ShakeEffect.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShakeEffect.swift; sourceTree = "<group>"; };
+		0F50A61629D45A7100450A0A /* Test2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Test2.swift; sourceTree = "<group>"; };
+		0F50A61C29D491E700450A0A /* AboutUserView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutUserView.swift; sourceTree = "<group>"; };
+		0F50A61E29D491FC00450A0A /* AboutUserViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutUserViewModel.swift; sourceTree = "<group>"; };
 		0F53DA9D29C9F901006B8461 /* TestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestView.swift; sourceTree = "<group>"; };
 		0F53DAA029CA0C40006B8461 /* SF-Pro-Display-Light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Pro-Display-Light.otf"; sourceTree = "<group>"; };
 		0F53DAA229CA0C89006B8461 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
@@ -86,12 +114,23 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0F07EA8329D324E500E8A28D /* Managers */ = {
+			isa = PBXGroup;
+			children = (
+				0F07EA8429D324F600E8A28D /* AuthManager.swift */,
+			);
+			path = Managers;
+			sourceTree = "<group>";
+		};
 		0F101E4129C9ED30004BBF8C = {
 			isa = PBXGroup;
 			children = (
 				0F101E4C29C9ED30004BBF8C /* NaviGay */,
 				0F101E7C29C9EDA2004BBF8C /* LaunchScreen.storyboard */,
+				0F101E5129C9ED31004BBF8C /* Assets.xcassets */,
 				0F53DA9F29CA0BCA006B8461 /* Fonts */,
+				0F53DA9D29C9F901006B8461 /* TestView.swift */,
+				0F50A61629D45A7100450A0A /* Test2.swift */,
 				0F101E6229C9ED31004BBF8C /* NaviGayTests */,
 				0F101E6C29C9ED31004BBF8C /* NaviGayUITests */,
 				0F101E4B29C9ED30004BBF8C /* Products */,
@@ -114,10 +153,10 @@
 				0F53DAA229CA0C89006B8461 /* Info.plist */,
 				0F101E4D29C9ED30004BBF8C /* NaviGayApp.swift */,
 				0F101E4F29C9ED30004BBF8C /* ContentView.swift */,
-				0F53DA9D29C9F901006B8461 /* TestView.swift */,
-				0F101E5129C9ED31004BBF8C /* Assets.xcassets */,
-				0F101E5629C9ED31004BBF8C /* Persistence.swift */,
-				0F101E5829C9ED31004BBF8C /* NaviGay.xcdatamodeld */,
+				0F07EA8329D324E500E8A28D /* Managers */,
+				0F1A7CFB29CB4D2000D701C3 /* Flows */,
+				0F1A7D0C29CB58B000D701C3 /* CoreData */,
+				0F1A7D0229CB56EA00D701C3 /* Helpers */,
 				0F101E5329C9ED31004BBF8C /* Preview Content */,
 			);
 			path = NaviGay;
@@ -146,6 +185,153 @@
 				0F101E6F29C9ED31004BBF8C /* NaviGayUITestsLaunchTests.swift */,
 			);
 			path = NaviGayUITests;
+			sourceTree = "<group>";
+		};
+		0F1A7CFB29CB4D2000D701C3 /* Flows */ = {
+			isa = PBXGroup;
+			children = (
+				0F1A7CFC29CB4D2A00D701C3 /* Auth */,
+				0F1A7D0B29CB587B00D701C3 /* ImagePicker */,
+				0F50A61829D48B8600450A0A /* New Group */,
+			);
+			path = Flows;
+			sourceTree = "<group>";
+		};
+		0F1A7CFC29CB4D2A00D701C3 /* Auth */ = {
+			isa = PBXGroup;
+			children = (
+				0F1A7D1229CC4C3A00D701C3 /* Login */,
+				0F1A7CFD29CB4D3400D701C3 /* SingUp */,
+				0F50A61929D491A700450A0A /* About */,
+			);
+			path = Auth;
+			sourceTree = "<group>";
+		};
+		0F1A7CFD29CB4D3400D701C3 /* SingUp */ = {
+			isa = PBXGroup;
+			children = (
+				0F1A7D1029CC4C2600D701C3 /* ViewModel */,
+				0F1A7D1129CC4C2F00D701C3 /* New Groupiew */,
+			);
+			path = SingUp;
+			sourceTree = "<group>";
+		};
+		0F1A7D0229CB56EA00D701C3 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				0F1A7D0329CB571900D701C3 /* AppFonts.swift */,
+				0F1A7D0529CB573E00D701C3 /* AppColors.swift */,
+				0F1A7D0729CB575B00D701C3 /* AppImages.swift */,
+				0F1A7D2D29CC9F4200D701C3 /* GeometryEffects */,
+				0F1A7D0D29CB6D7900D701C3 /* Buttons */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
+		0F1A7D0B29CB587B00D701C3 /* ImagePicker */ = {
+			isa = PBXGroup;
+			children = (
+				0F1A7D0929CB584A00D701C3 /* ImagePicker.swift */,
+			);
+			path = ImagePicker;
+			sourceTree = "<group>";
+		};
+		0F1A7D0C29CB58B000D701C3 /* CoreData */ = {
+			isa = PBXGroup;
+			children = (
+				0F101E5629C9ED31004BBF8C /* Persistence.swift */,
+				0F101E5829C9ED31004BBF8C /* NaviGay.xcdatamodeld */,
+			);
+			path = CoreData;
+			sourceTree = "<group>";
+		};
+		0F1A7D0D29CB6D7900D701C3 /* Buttons */ = {
+			isa = PBXGroup;
+			children = (
+				0F1A7D0E29CB6D9100D701C3 /* AsyncButton.swift */,
+			);
+			path = Buttons;
+			sourceTree = "<group>";
+		};
+		0F1A7D1029CC4C2600D701C3 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				0F1A7D0029CB4D7300D701C3 /* SignUpViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		0F1A7D1129CC4C2F00D701C3 /* New Groupiew */ = {
+			isa = PBXGroup;
+			children = (
+				0F1A7CFE29CB4D4800D701C3 /* SignUpView.swift */,
+			);
+			path = "New Groupiew";
+			sourceTree = "<group>";
+		};
+		0F1A7D1229CC4C3A00D701C3 /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				0F1A7D1329CC4C4900D701C3 /* ViewModel */,
+				0F1A7D1429CC4C5100D701C3 /* View */,
+			);
+			path = Login;
+			sourceTree = "<group>";
+		};
+		0F1A7D1329CC4C4900D701C3 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				0F1A7D1729CC4C9200D701C3 /* LoginViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		0F1A7D1429CC4C5100D701C3 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				0F1A7D1529CC4C6900D701C3 /* LoginView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		0F1A7D2D29CC9F4200D701C3 /* GeometryEffects */ = {
+			isa = PBXGroup;
+			children = (
+				0F1A7D2E29CC9F5600D701C3 /* ShakeEffect.swift */,
+			);
+			path = GeometryEffects;
+			sourceTree = "<group>";
+		};
+		0F50A61829D48B8600450A0A /* New Group */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "New Group";
+			sourceTree = "<group>";
+		};
+		0F50A61929D491A700450A0A /* About */ = {
+			isa = PBXGroup;
+			children = (
+				0F50A61B29D491C600450A0A /* ViewModel */,
+				0F50A61A29D491C000450A0A /* View */,
+			);
+			path = About;
+			sourceTree = "<group>";
+		};
+		0F50A61A29D491C000450A0A /* View */ = {
+			isa = PBXGroup;
+			children = (
+				0F50A61C29D491E700450A0A /* AboutUserView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		0F50A61B29D491C600450A0A /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				0F50A61E29D491FC00450A0A /* AboutUserViewModel.swift */,
+			);
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 		0F53DA9F29CA0BCA006B8461 /* Fonts */ = {
@@ -292,11 +478,25 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0F1A7D0629CB573E00D701C3 /* AppColors.swift in Sources */,
 				0F101E5729C9ED31004BBF8C /* Persistence.swift in Sources */,
+				0F1A7D0F29CB6D9100D701C3 /* AsyncButton.swift in Sources */,
 				0F53DA9E29C9F901006B8461 /* TestView.swift in Sources */,
+				0F1A7D0829CB575B00D701C3 /* AppImages.swift in Sources */,
+				0F1A7CFF29CB4D4800D701C3 /* SignUpView.swift in Sources */,
+				0F1A7D1829CC4C9200D701C3 /* LoginViewModel.swift in Sources */,
+				0F50A61D29D491E700450A0A /* AboutUserView.swift in Sources */,
 				0F101E5029C9ED30004BBF8C /* ContentView.swift in Sources */,
+				0F1A7D2F29CC9F5600D701C3 /* ShakeEffect.swift in Sources */,
+				0F07EA8529D324F600E8A28D /* AuthManager.swift in Sources */,
+				0F1A7D0429CB571900D701C3 /* AppFonts.swift in Sources */,
+				0F1A7D0A29CB584A00D701C3 /* ImagePicker.swift in Sources */,
+				0F50A61729D45A7100450A0A /* Test2.swift in Sources */,
 				0F101E4E29C9ED30004BBF8C /* NaviGayApp.swift in Sources */,
+				0F1A7D1629CC4C6900D701C3 /* LoginView.swift in Sources */,
+				0F1A7D0129CB4D7300D701C3 /* SignUpViewModel.swift in Sources */,
 				0F101E5A29C9ED31004BBF8C /* NaviGay.xcdatamodeld in Sources */,
+				0F50A61F29D491FD00450A0A /* AboutUserViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -459,10 +659,10 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = NaviGay/Info.plist;
-				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen.storyboard;
+				INFOPLIST_KEY_UIRequiresFullScreen = NO;
 				INFOPLIST_KEY_UIStatusBarStyle = "";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -490,10 +690,10 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = NaviGay/Info.plist;
-				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen.storyboard;
+				INFOPLIST_KEY_UIRequiresFullScreen = NO;
 				INFOPLIST_KEY_UIStatusBarStyle = "";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				LD_RUNPATH_SEARCH_PATHS = (
