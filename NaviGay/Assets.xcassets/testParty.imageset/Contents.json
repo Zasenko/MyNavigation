@@ -1,0 +1,21 @@
+{
+  "images" : [
+    {
+      "filename" : "038b4d2ba09cdd3f3b68643e308f5532_KV 425 x 610 for Ticketmelon.jpg",
+      "idiom" : "universal",
+      "scale" : "1x"
+    },
+    {
+      "idiom" : "universal",
+      "scale" : "2x"
+    },
+    {
+      "idiom" : "universal",
+      "scale" : "3x"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  }
+}
