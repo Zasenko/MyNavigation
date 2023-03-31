@@ -8,21 +8,9 @@
 import SwiftUI
 
 struct Test2: View {
-    
-    @State private var test = ""
+
     var body: some View {
-        ScrollView {
-            ZStack {
-                Image("testParty")
-                    .resizable()
-                    .frame(height: UIScreen.main.bounds.height)
-                VStack {
-                    Text("I am everywhere (except the software keyboard)")
-                    TextField(",kf", text: $test)
-                }
-            }
-        }
-                .ignoresSafeArea(SafeAreaRegions.container, edges: [.top, .bottom])
+        Text("bla bla")
     }
 }
 
