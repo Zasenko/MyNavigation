@@ -27,7 +27,6 @@ struct AboutUserView: View {
                 .onTapGesture {
                     focusedField = .name
                 }
-            
             bioField
                 .onTapGesture {
                     focusedField = .bio
@@ -37,7 +36,7 @@ struct AboutUserView: View {
         .padding()
         .disabled(viewModel.allViewsDisabled)
         .sheet(isPresented: $viewModel.showImagePicker) {
-            ImagePicker(image: $viewModel.image)
+            ImagePicker(image: $viewModel.image, sourceType: .camera)
         }
         .onTapGesture {
             focusedField = nil
@@ -50,13 +49,15 @@ struct AboutUserView: View {
             if let image = viewModel.image {
                 Image(uiImage: image)
                     .resizable()
-                    .scaledToFit()
-                    .frame(width: 150)
+                    .scaledToFill()
+                    .frame(width: 150, height: 150)
                     .clipShape(Circle())
+                    .shadow(radius: 16)
                     .padding()
                     .onTapGesture {
                         viewModel.showImagePicker = true
                     }
+                    
             } else {
                 Image(systemName: "person.fill")
                     .resizable()
@@ -79,14 +80,20 @@ struct AboutUserView: View {
                 }
                 
             } label: {
-                Text("add photo")
+                HStack {
+                    Image(systemName: "photo")
+                        .font(.system(size: 20))
+                    
+                    Text("Photo library")
+                        .font(.headline)
+                }
             }
             .font(.callout)
             .padding(.bottom)
         }
         .padding(.bottom)
     }
-
+    
     private var nameField: some View {
         HStack {
             Image(systemName: "person")
