@@ -7,8 +7,17 @@
 
 import SwiftUI
 
+struct Region {
+    let id: UInt
+    var name: String
+    var about: String
+    var photo: Image
+    var cities: [City]
+    var places: [Place]
+    var events: [Event]
+}
+
 struct City {
-    
     let id: UInt
     
     var name: String
@@ -18,12 +27,8 @@ struct City {
     var photos: [Image]
     
     var reasonsWhy: [String] //?
-    var thingsToDo: [String]
+    var thingsToDo: [String] //?
     
     var places: [Place]
     var events: [Event]
-    
-    
-    var created: Date
-    var lustUpdate: Date
 }

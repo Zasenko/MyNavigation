@@ -10,10 +10,18 @@ import SwiftUI
 @main
 struct NaviGayApp: App {
    // let persistenceController = PersistenceController.sharedbounds
-
+    
+    @State private var isUserLoggedIn = true
+    @State private var isUserHaveLocation = true
+    @State private var isAnimationFinished = false
+    let viewBilder = ViewBilder()
+    
     var body: some Scene {
         WindowGroup {
-            AboutUserView(viewModel: AboutUserViewModel())
+            //LogoAnimationView(isAnimationFinished: $isAnimationFinished)
+            
+            TabBarView(viewModel: TabBarViewModel(isUserLoggedIn: $isUserLoggedIn, isUserHaveLocation: $isUserHaveLocation, viewBilder: viewBilder))
+            //AboutUserView(viewModel: AboutUserViewModel())
             //    .environment(\.managedObjectContext, persistenceController.container.viewContext)
         }
     }

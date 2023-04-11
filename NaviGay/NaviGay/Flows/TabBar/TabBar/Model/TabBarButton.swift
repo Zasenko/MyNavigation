@@ -7,8 +7,9 @@
 
 import SwiftUI
 
-struct TabItem {
+struct TabBarButton: Identifiable {
     let id: Int
-    let name: String
+    let title: String
     let img: Image
+    let view: AnyView
 }

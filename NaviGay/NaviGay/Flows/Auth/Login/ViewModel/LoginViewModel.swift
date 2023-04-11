@@ -10,7 +10,6 @@ import SwiftUI
 final class LoginViewModel: ObservableObject {
     
     // MARK: - Properties
-    
     @Published var email = ""
     @Published var password = ""
     @Published var error = ""
@@ -27,20 +26,13 @@ final class LoginViewModel: ObservableObject {
 }
 
 extension LoginViewModel {
-    // MARK: - Functions
     
+    // MARK: - Functions
     func loginButtonTapped() {
         error = ""
         invalidLoginAttempts = 0
         invalidPasswordAttempts = 0
         
-//        authManager.checkEmail(email: email) { [weak self] bool in
-//            if !bool {
-//                self?.error = "Incorrect email"
-//                self?.shakeLogin()
-//                return
-//            }
-//        }
         allViewsDisabled = true
         authManager.check(email: email, password: password) { [weak self] result in
             switch result {
@@ -60,22 +52,8 @@ extension LoginViewModel {
                     self?.shakePassword()
                     return
                 }
-                
-                //                self?.error = "Wrong password"
-                //                self?.shakePassword()
-                //                return
-                
             }
         }
-//        if !authManager.checkPassword(str: password) {
-//            error = "Wrong password"
-//            shakePassword()
-//            return
-//        }
-//        allViewsDisabled = true
-//        withAnimation(.easeInOut(duration: 0.5)) {
-//            loginButtonState = .loading
-//        }
         
         DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
             withAnimation(.easeInOut(duration: 0.5)) {
