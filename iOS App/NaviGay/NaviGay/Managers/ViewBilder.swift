@@ -8,9 +8,14 @@
 import SwiftUI
 
 final class ViewBilder {
+    
+    //MARK: - Private properties
+    private let networkManager = NetworkManager()
 }
 
 extension ViewBilder {
+    
+    //MARK: - Functions
     func makeMapView() -> some View {
         let viewModel = MapViewModel()
         return MapView(viewModel: viewModel)
@@ -21,7 +26,7 @@ extension ViewBilder {
     }
     
     func makeSearchView() -> some View {
-        let viewModel = CountriesViewModel(viewBilder: self)
+        let viewModel = CountriesViewModel(viewBilder: self, networkManager: networkManager)
         return CountriesView(viewModel: viewModel)
     }
     

@@ -47,6 +47,6 @@ struct CountriesView: View {
 
 struct CountriesView_Previews: PreviewProvider {
     static var previews: some View {
-        CountriesView(viewModel: CountriesViewModel(viewBilder: ViewBilder()))
+        CountriesView(viewModel: CountriesViewModel(viewBilder: ViewBilder(), networkManager: NetworkManager()))
     }
 }

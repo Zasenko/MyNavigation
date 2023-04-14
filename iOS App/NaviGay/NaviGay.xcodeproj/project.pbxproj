@@ -48,6 +48,8 @@
 		0F53DAA929CA1D2E006B8461 /* SF-Pro-Display-Black.otf in Resources */ = {isa = PBXBuildFile; fileRef = 0F53DAA829CA1D2E006B8461 /* SF-Pro-Display-Black.otf */; };
 		0F53DAAB29CA1D6A006B8461 /* SF-Pro-Display-Ultralight.otf in Resources */ = {isa = PBXBuildFile; fileRef = 0F53DAAA29CA1D6A006B8461 /* SF-Pro-Display-Ultralight.otf */; };
 		0F7CB6F329E5605300054522 /* NavigationConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F7CB6F229E5605300054522 /* NavigationConfigurator.swift */; };
+		0F7CB6F629E5928400054522 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F7CB6F529E5928400054522 /* NetworkManager.swift */; };
+		0F7CB6F829E5973700054522 /* NetworkMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F7CB6F729E5973700054522 /* NetworkMonitor.swift */; };
 		0FB7A25329DED8290000B6BF /* LogoAnimationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FB7A25229DED8290000B6BF /* LogoAnimationView.swift */; };
 		0FC5D33429DAF55200711217 /* ViewBilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FC5D33329DAF55200711217 /* ViewBilder.swift */; };
 		0FC5D33629DB02E900711217 /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FC5D33529DB02E900711217 /* MapView.swift */; };
@@ -121,6 +123,8 @@
 		0F53DAA829CA1D2E006B8461 /* SF-Pro-Display-Black.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Pro-Display-Black.otf"; sourceTree = "<group>"; };
 		0F53DAAA29CA1D6A006B8461 /* SF-Pro-Display-Ultralight.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Pro-Display-Ultralight.otf"; sourceTree = "<group>"; };
 		0F7CB6F229E5605300054522 /* NavigationConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationConfigurator.swift; sourceTree = "<group>"; };
+		0F7CB6F529E5928400054522 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
+		0F7CB6F729E5973700054522 /* NetworkMonitor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkMonitor.swift; sourceTree = "<group>"; };
 		0FB7A25229DED8290000B6BF /* LogoAnimationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogoAnimationView.swift; sourceTree = "<group>"; };
 		0FC5D33329DAF55200711217 /* ViewBilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewBilder.swift; sourceTree = "<group>"; };
 		0FC5D33529DB02E900711217 /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
@@ -161,6 +165,7 @@
 			children = (
 				0F07EA8429D324F600E8A28D /* AuthManager.swift */,
 				0FC5D33329DAF55200711217 /* ViewBilder.swift */,
+				0F7CB6F929E5988A00054522 /* Network */,
 			);
 			path = Managers;
 			sourceTree = "<group>";
@@ -727,6 +732,23 @@
 			path = Fonts;
 			sourceTree = "<group>";
 		};
+		0F7CB6F929E5988A00054522 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				0F7CB6F729E5973700054522 /* NetworkMonitor.swift */,
+				0F7CB6F529E5928400054522 /* NetworkManager.swift */,
+				0FF4F46129E99DDC008BDE17 /* Models */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
+		0FF4F46129E99DDC008BDE17 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -874,11 +896,13 @@
 				0F1A7D0829CB575B00D701C3 /* AppImages.swift in Sources */,
 				0F1A7CFF29CB4D4800D701C3 /* SignUpView.swift in Sources */,
 				0F1A7D1829CC4C9200D701C3 /* LoginViewModel.swift in Sources */,
+				0F7CB6F829E5973700054522 /* NetworkMonitor.swift in Sources */,
 				0F0FA09329D5ED2A00DE75AC /* MapViewModel.swift in Sources */,
 				0F0FA09A29D6E99600DE75AC /* TabBarViewModel.swift in Sources */,
 				0F50A61D29D491E700450A0A /* AboutUserView.swift in Sources */,
 				0F0FA06B29D5DDCB00DE75AC /* Country.swift in Sources */,
 				0FC5D33829DB0E1900711217 /* CountriesView.swift in Sources */,
+				0F7CB6F629E5928400054522 /* NetworkManager.swift in Sources */,
 				0F7CB6F329E5605300054522 /* NavigationConfigurator.swift in Sources */,
 				0F101E5029C9ED30004BBF8C /* ContentView.swift in Sources */,
 				0F1A7D2F29CC9F5600D701C3 /* ShakeEffect.swift in Sources */,
