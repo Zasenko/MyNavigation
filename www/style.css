@@ -11,47 +11,38 @@
     user-select: none;
 }
 
-@font-face {
-    font-family: heavy-font;
-    src: url(fonts/SF-Pro-Display-Heavy.otf);
-}
-
-@font-face {
-    font-family: regular-font;
-    src: url(fonts/SF-Pro-Display-Regular.otf);
-}
-
-@font-face {
-    font-family: thin-font;
-    src: url(fonts/SF-Pro-Display-Thin.otf);
-}
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;900&display=swap');
 
 h1 {
-    font-family: heavy-font;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 900;
     color: black;
     font-size: 8rem;
 }
 
 h2 {
-    font-family: heavy-font;
+    font-family: 'Roboto', sans-serif;
     color: black;
     font-size: 3rem;
 }
 
 h3 {
-    font-family: thin-font;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 300;
     color: black;
     font-size: 3rem;
 }
 
 p {
     font-size: 1rem;
-    font-family: regular-font;
+    font-weight: 400;
+    font-family: 'Roboto', sans-serif;
 }
 
 a {
-    font-family: regular-font;
+    font-family: 'Roboto', sans-serif;
     font-size: 1rem;
+    font-weight: 400;
     color: #2897ff;
     text-decoration: underline;
 }
@@ -71,8 +62,9 @@ a:visited {
 }
 
 .button {
-    font-family: regular-font;
+    font-family: 'Roboto', sans-serif;
     font-size: 1rem;
+    font-weight: 400;
     background-color: #0a0a23;
     color: #fff;
     border: none;
