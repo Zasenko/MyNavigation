@@ -16,37 +16,41 @@
 h1 {
     font-family: 'Roboto', sans-serif;
     font-weight: 900;
-    color: black;
-    font-size: 8rem;
-}
-
-h2 {
-    font-family: 'Roboto', sans-serif;
-    color: black;
-    font-size: 3rem;
+    font-size: 5rem;
 }
 
 h3 {
     font-family: 'Roboto', sans-serif;
     font-weight: 300;
-    color: black;
     font-size: 3rem;
 }
 
+.bigText {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 300;
+    font-size: 1.5rem;
+}
+
+.superBigText {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 900;
+    color: black;
+    font-size: 10rem;
+}
+
 p {
-    font-size: 1rem;
-    font-weight: 400;
+    font-weight: 300;
+    font-size: 1.1rem;
     font-family: 'Roboto', sans-serif;
 }
 
 a {
     font-family: 'Roboto', sans-serif;
-    font-size: 1rem;
-    font-weight: 400;
+    font-weight: 300;
+    font-size: 1.1rem;
     color: #2897ff;
     text-decoration: underline;
 }
-
 
 a:hover {
     color: #2897ff;
@@ -57,14 +61,14 @@ a:visited {
     color: #2897ff;
 }
 
-.logo50 {
-    height: 2rem;
+.logoFull {
+    height: 2.5rem;
 }
 
 .button {
     font-family: 'Roboto', sans-serif;
-    font-size: 1rem;
-    font-weight: 400;
+    font-weight: 300;
+    font-size: 1.1rem;
     background-color: #0a0a23;
     color: #fff;
     border: none;

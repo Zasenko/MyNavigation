@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Моя страница</title>
+</head>
+
+<body>
+    <h1 id="title"></h1>
+    <p id="text"></p>
+    <p id="backHome"></p>
+
+    <script>
+        const lang = navigator.language || navigator.userLanguage;
+        const texts = {
+            'ru': {
+                'title': '',
+                'backHome': '',
+                'text': 'Упс! Похоже, вы&nbsp;свернули не&nbsp;туда.<br><br>Не&nbsp;волнуйтесь, мы&nbsp;не&nbsp;будем судить. Иногда мы&nbsp;все оказываемся в&nbsp;неожиданных местах.<br><br>Но&nbsp;раз вы&nbsp;здесь, почему&nbsp;бы не&nbsp;осмотреться? Кто знает, может быть, вы&nbsp;откроете для себя что-то новое и&nbsp;захватывающее!'
+            },
+            'en': {
+                'title': '',
+                'backHome': 'Back home',
+                'text': 'Oops! Looks like you took a&nbsp;wrong turn.<br><br>Don&rsquo;t worry, we&nbsp;won&rsquo;t judge. Sometimes we&nbsp;all end up&nbsp;in&nbsp;unexpected places.<br><br>But since you&rsquo;re here, why not take a&nbsp;look around?<br><br>Who knows, you might discover something new and exciting! In&nbsp;the meantime, let&rsquo;s dance it&nbsp;out to&nbsp;some good old disco music.'
+            }
+            'it': {
+                'title': '',
+                'backHome': '',
+                'text': ''
+            }
+            'fr': {
+                'title': '',
+                'backHome': '',
+                'text': ''
+            }
+            'ge': {
+                'title': '',
+                'backHome': '',
+                'text': 'Hoppla! Sie haben anscheinend eine falsche Abzweigung genommen.<br><br>Keine Sorge, wir werden nicht urteilen. Manchmal landen wir alle an&nbsp;unerwarteten Orten.<br><br>Aber da&nbsp;Sie hier sind, warum schauen Sie sich nicht&nbsp;um? Wer wei&szlig;, vielleicht entdecken Sie etwas Neues und Aufregendes!'
+            }
+
+
+        };
+
+        var langr = ''
+
+        switch (lang) {
+            case 'ru':
+                langr = 'ru';
+                break;
+            case 'en':
+                langr = 'en';
+                break;
+            default:
+                break;
+        }
+
+        // выбираем нужный текст на основе языка браузера
+        const selectedText = texts[lang.startsWith('ru') ? 'ru' : 'en'];
+
+        // выводим текст на страницу
+        document.getElementById('title').textContent = selectedText.title;
+        document.getElementById('text').textContent = selectedText.text;
+        document.getElementById('backHome').textContent = selectedText.backHome;
+    </script>
+</body>
+
+</html>
