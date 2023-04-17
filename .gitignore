@@ -90,3 +90,7 @@ fastlane/test_output
 iOSInjectionProject/
 
 www/.vscode/
+
+iOS App/NaviGay/NaviGay/Managers/Network/ApiProperties.swift
+
+Api/dbconfig.php

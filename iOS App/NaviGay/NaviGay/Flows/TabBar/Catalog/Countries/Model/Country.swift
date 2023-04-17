@@ -9,22 +9,20 @@ import SwiftUI
 
 struct Country: Identifiable{
     let id: UInt
-    let name: String
-    let about: String
+    var name: String
+    var about: String
     let flag: String
-    var photo: Image
+    var photo: String
     var events: [Event]
     var regions: [Region]
     var isActive: Bool
-    var lastUpdate: Date
-}
-
-struct CountryAPI: Identifiable, Codable {
-    let id: UInt
-    let name: String
-    let about: String
-    let flag: String
-//    var photo: Image
-//    var events: [Event]
-//    var regions: [Region]
+    var lastUpdate: Date?
+    
+    func createSmallDescriprion() -> String {
+        if let description = about.split(separator: ".").first {
+            return "\(description)."
+        } else {
+            return ""
+        }
+    }
 }

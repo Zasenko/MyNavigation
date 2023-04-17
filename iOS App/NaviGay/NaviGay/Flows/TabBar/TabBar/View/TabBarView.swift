@@ -49,7 +49,6 @@ struct TabBarView: View {
                 }
             }
             .frame(maxWidth: .infinity)
-            .frame(height: 50)
             .background(AppColors.background)
         }
 }

@@ -12,4 +12,9 @@ struct AppColors {
     static let background = Color(uiColor: UIColor.systemBackground)
     static let lightGray = Color(UIColor.systemGray6)
     static let lightGray5 = Color(UIColor.systemGray5)
+    
+    static let rainbowGradient = LinearGradient(
+        colors: [.red, .blue, .green, .yellow],
+        startPoint: .topLeading,
+        endPoint: .bottomTrailing)
 }

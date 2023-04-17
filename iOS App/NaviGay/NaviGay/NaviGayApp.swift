@@ -9,7 +9,6 @@ import SwiftUI
 
 @main
 struct NaviGayApp: App {
-   // let persistenceController = PersistenceController.sharedbounds
     
     @State private var isUserLoggedIn = true
     @State private var isUserHaveLocation = true

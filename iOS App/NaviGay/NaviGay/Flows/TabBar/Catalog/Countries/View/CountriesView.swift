@@ -9,38 +9,56 @@ import SwiftUI
 
 struct CountriesView: View {
     
+    //MARK: - Proreties
     @StateObject var viewModel: CountriesViewModel
     
+    //MARK: - Body
     var body: some View {
         NavigationStack {
-            List($viewModel.countries) { country in
-                ZStack {
+            list
+                .toolbar {
+                    ToolbarItem(placement: .principal) {
+                        Text("Countries")
+                            .font(.largeTitle)
+                            .bold()
+                            .foregroundStyle(AppColors.rainbowGradient)
+                    }
+                }
+                .navigationBarTitleDisplayMode(.inline)
+                .background {
+                    NavigationConfigurator { navigationConfigurator in
+                        navigationConfigurator.hidesBarsOnSwipe = true
+                        navigationConfigurator.hidesBottomBarWhenPushed = true
+                        navigationConfigurator.isToolbarHidden = true
+                        navigationConfigurator.toolbar.backgroundColor = .orange
+                    }
+                }
+        }
+    }
+    
+    //MARK: - Views
+    private var list: some View {
+        List {
+            Section {
+                Color.clear
+                    .frame(height: 20)
+                    .listRowSeparator(.hidden)
+            }
+            ForEach($viewModel.countries) { country in
+                Section {
                     NavigationLink {
                         viewModel.makeCountryView(country: country)
+                        
                     } label: {
-                        EmptyView()
+                        CountryCell(country: country)
                     }
-                    .opacity(0.0)
-                    .buttonStyle(PlainButtonStyle())
-                    
-                    CountryCell(country: country)
                 }
-                .buttonStyle(PlainButtonStyle())
-                .listRowSeparator(.hidden)
                 .listRowBackground(AppColors.background)
             }
-            .listStyle(.plain)
-            .navigationTitle("Countries")
-            .navigationBarTitleDisplayMode(.inline)
-            .background(AppColors.background)
-            .background {
-                NavigationConfigurator { navigationConfigurator in
-                    navigationConfigurator.hidesBarsOnSwipe = true
-                    navigationConfigurator.hidesBottomBarWhenPushed = true
-                    navigationConfigurator.isToolbarHidden = true
-                    navigationConfigurator.toolbar.backgroundColor = .orange
-                }
-            }
+        }
+        .listStyle(.plain)
+        .onAppear() {
+            viewModel.getCountries()
         }
     }
 }

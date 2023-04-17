@@ -26,8 +26,7 @@ extension ViewBilder {
     }
     
     func makeSearchView() -> some View {
-        let viewModel = CountriesViewModel(viewBilder: self, networkManager: networkManager)
-        return CountriesView(viewModel: viewModel)
+        return CountriesView(viewModel: CountriesViewModel(viewBilder: self, networkManager: self.networkManager))
     }
     
     func makeUserView() -> some View {
@@ -39,7 +38,6 @@ extension ViewBilder {
         }
     }
     func makeCountryView(country: Binding<Country>) -> some View {
-        let viewModel = CountryViewModel(country: country)
-        return CountryView(viewModel: viewModel)
+        return CountryView(viewModel: CountryViewModel(country: country))
     }
 }
