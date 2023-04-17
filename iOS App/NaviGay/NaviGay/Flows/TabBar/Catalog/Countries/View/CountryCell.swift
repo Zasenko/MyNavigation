@@ -9,21 +9,25 @@ import SwiftUI
 
 struct CountryCell: View {
     
+    //MARK: - Properties
     @Binding var country: Country
     
+    //MARK: - Body
     var body: some View {
-        HStack(alignment: .center) {
+        HStack(alignment: .top) {
             Text(country.flag)
                 .font(.title)
-                .padding(.horizontal)
-            Text(country.name)
-                .font(.title3)
+                .padding(.trailing)
+            VStack(alignment: .leading) {
+                Text(country.name)
+                    .font(.title)
+                    .padding(.bottom, 4)
+                Text(country.createSmallDescriprion())
+                    .font(.caption)
+                    .foregroundColor(.secondary)
+            }
             Spacer()
-            Image(systemName: "chevron.right")
-                .foregroundColor(.secondary)
         }
-        .padding()
-        .background(AppColors.lightGray5)
-        .cornerRadius(16)
+        .padding(.bottom)
     }
 }

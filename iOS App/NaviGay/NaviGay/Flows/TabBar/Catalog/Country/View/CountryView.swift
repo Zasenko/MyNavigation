@@ -14,12 +14,14 @@ struct CountryView: View {
     var body: some View {
         ScrollView(.vertical, showsIndicators: false) {
             VStack() {
-                viewModel.country.photo
-                    .resizable()
-                    .scaledToFit()
+//                viewModel.country.photo
+//                    .resizable()
+//                    .scaledToFit()
+                Text(viewModel.country.photo)
                 Text(viewModel.country.about)
                     .padding()
                     .lineSpacing(12)
+                Text(viewModel.country.flag)
             }
         }
 //        List($viewModel.country.regions, rowContent: { <#Binding<Identifiable>#> in

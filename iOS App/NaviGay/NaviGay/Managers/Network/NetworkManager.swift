@@ -12,13 +12,13 @@ enum NetworkManagerErrors: Error {
     case decoderError
     case bedUrl
     case invalidData
+    case apiError
 }
 
 
 final class NetworkManager {
     
     //MARK: - Private properties
-    
     private let networkMonitor = NetworkMonitor()
     private let api = ApiProperties()
 }
@@ -26,28 +26,22 @@ final class NetworkManager {
 extension NetworkManager {
     
     //MARK: - Functions
-    
     func getCountries() async throws -> [Country] {
-        guard networkMonitor.isInternetConnected == true else {
-            throw NetworkManagerErrors.noConnection
-        }
-        var urlComponents: URLComponents {
-            var components = URLComponents()
-            components.scheme = api.scheme
-            components.host = api.host
-            components.path = api.getCountriesPath
-            return components
-        }
-        guard let url = urlComponents.url else {
+        guard let url = await api.getAllCountriesUrl() else {
             throw NetworkManagerErrors.bedUrl
         }
         let (data, response) = try await URLSession.shared.data(from: url)
         guard let response = response as? HTTPURLResponse, response.statusCode == 200 else {
             throw NetworkManagerErrors.invalidData
         }
-        guard let decodedResult = try? JSONDecoder().decode([CountryAPI].self, from: data) else {
+        guard let decodedResult = try? JSONDecoder().decode(CountriesApi.self, from: data) else {
             throw NetworkManagerErrors.decoderError
         }
-        return []//decodedResult
+        if let resultError = decodedResult.error {
+            debugPrint(resultError)
+            throw NetworkManagerErrors.apiError
+        }
+        
+        return decodedResult.countries?.map( { $0.makeCountryModel() })  ?? []
     }
 }

@@ -3,14 +3,14 @@ CREATE TABLE Country (
 
   name_en VARCHAR(255) NOT NULL,
   name_fr VARCHAR(255) NOT NULL,
-  name_ge VARCHAR(255) NOT NULL,
+  name_de VARCHAR(255) NOT NULL,
   name_ru VARCHAR(255) NOT NULL,
   name_it VARCHAR(255) NOT NULL,
   name_es VARCHAR(255) NOT NULL,
   
   about_en TEXT NOT NULL,
   about_fr TEXT NOT NULL,
-  about_ge TEXT NOT NULL,
+  about_de TEXT NOT NULL,
   about_ru TEXT NOT NULL,
   about_it TEXT NOT NULL,
   about_es TEXT NOT NULL,

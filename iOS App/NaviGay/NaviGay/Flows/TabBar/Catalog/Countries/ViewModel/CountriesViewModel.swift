@@ -9,14 +9,17 @@ import SwiftUI
 
 final class CountriesViewModel: ObservableObject {
     
+    //MARK: - Properties
     @Published var countries: [Country] = []
+    
+    //MARK: - Private Properties
     private let viewBilder: ViewBilder
     private let networkManager: NetworkManager
     
+    //MARK: - Inits
     init(viewBilder: ViewBilder, networkManager: NetworkManager) {
         self.viewBilder = viewBilder
         self.networkManager = networkManager
-        self.getCountries()
     }
 }
 
@@ -27,15 +30,16 @@ extension CountriesViewModel {
         viewBilder.makeCountryView(country: country)
     }
     
-    //MARK: - Private Functions
-    private func getCountries() {
-        Task {
-            do {
-                self.countries = try await networkManager.getCountries()
-            } catch {
-                print("Error fetching country: \(error)")
+    @MainActor
+    func getCountries() {
+        if countries.isEmpty {
+            Task {
+                do {
+                    self.countries = try await networkManager.getCountries()
+                } catch {
+                    print("Error fetching country: \(error)")
+                }
             }
         }
-        
     }
 }

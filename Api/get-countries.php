@@ -2,7 +2,7 @@
 require_once('languages.php');
 $lang = isset($_GET['lang']) && in_array($_GET['lang'], $languages) ? $_GET['lang'] : 'en';
 $con = require __DIR__ . "/dbconfig.php";
-$sql = "SELECT id, name_$lang, about_$lang, flag_emoji, photo, is_active, updated_at FROM Country";
+$sql = "SELECT id, name_$lang, about_$lang, flag_emoji, photo, is_active FROM Country";
 if ($result = $conn->query($sql)) {
     $countries = array();
     while ($row = $result->fetch_assoc()) {
@@ -16,7 +16,7 @@ if ($result = $conn->query($sql)) {
             'places' => [],
             'events' => [],
             'isActive' => $row['is_active'],
-            'updatedAt' => $row['updated_at']
+            'lastUpdate' => ""
         );
         array_push($countries, $country);
     }
