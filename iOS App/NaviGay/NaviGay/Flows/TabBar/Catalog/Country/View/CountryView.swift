@@ -21,6 +21,7 @@ struct CountryView: View {
                 Text(viewModel.country.about)
                     .padding()
                     .lineSpacing(12)
+                Text(viewModel.country.lastUpdate?.formatted(date: .complete, time: .complete) ?? "")
                 Text(viewModel.country.flag)
             }
         }

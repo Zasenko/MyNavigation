@@ -16,6 +16,7 @@ struct CountriesView: View {
     var body: some View {
         NavigationStack {
             list
+                .navigationBarTitleDisplayMode(.inline)
                 .toolbar {
                     ToolbarItem(placement: .principal) {
                         Text("Countries")
@@ -24,7 +25,6 @@ struct CountriesView: View {
                             .foregroundStyle(AppColors.rainbowGradient)
                     }
                 }
-                .navigationBarTitleDisplayMode(.inline)
                 .background {
                     NavigationConfigurator { navigationConfigurator in
                         navigationConfigurator.hidesBarsOnSwipe = true
@@ -44,8 +44,9 @@ struct CountriesView: View {
                     .frame(height: 20)
                     .listRowSeparator(.hidden)
             }
-            ForEach($viewModel.countries) { country in
-                Section {
+            Section {
+                ForEach($viewModel.countries) { country in
+                    
                     NavigationLink {
                         viewModel.makeCountryView(country: country)
                         

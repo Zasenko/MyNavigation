@@ -13,8 +13,8 @@ struct Country: Identifiable{
     var about: String
     let flag: String
     var photo: String
-    var events: [Event]
-    var regions: [Region]
+    var events: [Event] = []
+    var regions: [Region] = []
     var isActive: Bool
     var lastUpdate: Date?
     

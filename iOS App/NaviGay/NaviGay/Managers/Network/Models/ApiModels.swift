@@ -19,9 +19,6 @@ struct CountryApi: Identifiable, Codable {
     let flag: String
     let photo: String
     let isActive: UInt
-    let regions: [RegionApi]
-    let events: [EventApi]
-    let places: [PlaceApi]
     let lastUpdate: String
     
     func makeCountryModel() -> Country {
