@@ -1,7 +1,7 @@
 <?php
 require_once('languages.php');
 $lang = isset($_GET['lang']) && in_array($_GET['lang'], $languages) ? $_GET['lang'] : 'en';
-$con = require __DIR__ . "/dbconfig.php";
+require_once("dbconfig.php");
 $sql = "SELECT id, name_$lang, about_$lang, flag_emoji, photo, is_active, TIMESTAMP(updated_at) AS updated_at FROM Country";
 if ($result = $conn->query($sql)) {
     $countries = array();

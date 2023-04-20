@@ -41,7 +41,25 @@ extension NetworkManager {
             debugPrint(resultError)
             throw NetworkManagerErrors.apiError
         }
-        
         return decodedResult.countries?.map( { $0.makeCountryModel() })  ?? []
     }
+    
+    func getCities(countryId: Int) async throws -> [City] {
+        guard let url = await api.getAllCitiesUrl(countryId: countryId) else {
+            throw NetworkManagerErrors.bedUrl
+        }
+        let (data, response) = try await URLSession.shared.data(from: url)
+        guard let response = response as? HTTPURLResponse, response.statusCode == 200 else {
+            throw NetworkManagerErrors.invalidData
+        }
+        guard let decodedResult = try? JSONDecoder().decode(CitiesApi.self, from: data) else {
+            throw NetworkManagerErrors.decoderError
+        }
+        if let resultError = decodedResult.error {
+            debugPrint(resultError)
+            throw NetworkManagerErrors.apiError
+        }
+        return decodedResult.cities?.map( { $0.makeCityModel() })  ?? []
+    }
+    
 }

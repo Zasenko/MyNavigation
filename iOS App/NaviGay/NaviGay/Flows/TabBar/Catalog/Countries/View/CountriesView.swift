@@ -15,7 +15,7 @@ struct CountriesView: View {
     //MARK: - Body
     var body: some View {
         NavigationStack {
-            list
+            listWithCountries
                 .navigationBarTitleDisplayMode(.inline)
                 .toolbar {
                     ToolbarItem(placement: .principal) {
@@ -25,19 +25,21 @@ struct CountriesView: View {
                             .foregroundStyle(AppColors.rainbowGradient)
                     }
                 }
-                .background {
+                .navigationTitle("")
+                .toolbarBackground(AppColors.background, for: .navigationBar)
+                .background(
                     NavigationConfigurator { navigationConfigurator in
                         navigationConfigurator.hidesBarsOnSwipe = true
-                        navigationConfigurator.hidesBottomBarWhenPushed = true
-                        navigationConfigurator.isToolbarHidden = true
-                        navigationConfigurator.toolbar.backgroundColor = .orange
+                     //   navigationConfigurator.hidesBottomBarWhenPushed = false
+                     //   navigationConfigurator.isToolbarHidden = true
+                     //   navigationConfigurator.toolbar.backgroundColor = .orange
                     }
-                }
+                )
         }
     }
     
     //MARK: - Views
-    private var list: some View {
+    @ViewBuilder private var listWithCountries: some View {
         List {
             Section {
                 Color.clear
@@ -46,10 +48,8 @@ struct CountriesView: View {
             }
             Section {
                 ForEach($viewModel.countries) { country in
-                    
                     NavigationLink {
                         viewModel.makeCountryView(country: country)
-                        
                     } label: {
                         CountryCell(country: country)
                     }
@@ -66,6 +66,9 @@ struct CountriesView: View {
 
 struct CountriesView_Previews: PreviewProvider {
     static var previews: some View {
-        CountriesView(viewModel: CountriesViewModel(viewBilder: ViewBilder(), networkManager: NetworkManager()))
+        CountriesView(viewModel: CountriesViewModel(viewBilder: ViewBilder(),
+                                                    networkManager: NetworkManager()
+                                                   )
+        )
     }
 }

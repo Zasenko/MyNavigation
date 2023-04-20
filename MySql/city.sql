@@ -1,3 +1,5 @@
+INSERT INTO City (name_en, name_fr, name_de, name_ru, name_it, name_es, about_en, about_fr, about_de, about_ru, about_it, about_es, photo, country_id) VALUES (" ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", 2)
+
 CREATE TABLE City (
   id SMALLINT UNSIGNED NOT NULL PRIMARY KEY AUTO_INCREMENT,
 

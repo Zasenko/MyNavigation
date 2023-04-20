@@ -8,13 +8,13 @@
 import SwiftUI
 
 struct Country: Identifiable{
-    let id: UInt
+    let id: Int
     var name: String
     var about: String
     let flag: String
     var photo: String
+    var cities: [City] = []
     var events: [Event] = []
-    var regions: [Region] = []
     var isActive: Bool
     var lastUpdate: Date?
     

@@ -38,6 +38,6 @@ extension ViewBilder {
         }
     }
     func makeCountryView(country: Binding<Country>) -> some View {
-        return CountryView(viewModel: CountryViewModel(country: country))
+        return CountryView(viewModel: CountryViewModel(country: country, networkManager: self.networkManager))
     }
 }

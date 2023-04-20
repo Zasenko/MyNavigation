@@ -6,25 +6,31 @@
 //
 
 import SwiftUI
+//
+//struct Region {
+//    let id: Int
+//    var name: String
+//    var about: String
+//    var photo: Image
+//    var cities: [City]
+//    var places: [Place]
+//    var events: [Event]
+//}
 
-struct Region {
-    let id: UInt
-    var name: String
-    var about: String
-    var photo: Image
-    var cities: [City]
-    var places: [Place]
-    var events: [Event]
-}
-
-struct City {
-    let id: UInt
+struct City: Identifiable {
+    let id: Int
     
     var name: String
     var about: String
     
-    var photo: Image
-    var photos: [Image]
+    var photo: String
+    var photos: [String]
+    
+    let isActive: Bool
+    let lastUpdate: Date?
+    
+    let region_id: Int
+    let region_name: String
     
     var reasonsWhy: [String] //?
     var thingsToDo: [String] //?
